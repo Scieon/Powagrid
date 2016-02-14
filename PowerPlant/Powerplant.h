@@ -1,24 +1,31 @@
-#pragma once
+#ifndef POWERPLANT_H
+#define POWERPLANT_H
 #include <string>
-using namespace std;
-class Powerplant
-{
+using std::string;
+
+class Powerplant {
+
 public:
-	Powerplant(int minimumBid, string resourceType, int nbOfResources, int nbOfCitiesPowered);
+	
+	Powerplant();
+	Powerplant(int min_bid, string resource_type, int resources_required, int num_cities_powered);
 	~Powerplant();
 
-	int get_min_bid();
-	string get_resource_type();
-	int get_resources_required();
-	int get_nb_cities_powered();
+	//Getters and Setters
 
 
 private:
+	
 	int min_bid;
 	string resource_type;
-	int resources_required;
-	int nb_cities_powered;
+
+	int num_cities_powered;
+	int resources_required = -1; //Number of resources required
+	int storage = 2* resources_required; //Number of resources stored in power plant.
 
 
 };
 
+
+
+#endif
