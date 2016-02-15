@@ -13,6 +13,13 @@ public:
 
 	//Getters and Setters
 
+	int getBid() ;
+	void setBid(int bid);
+	string getType() ;
+	int getCitiesPowered() ;
+	int getResourceReq() ;
+	int getStorage() ;
+
 
 private:
 	

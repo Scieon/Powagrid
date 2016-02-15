@@ -1,9 +1,10 @@
 #include "PowerplantManager.h"
 #include "Powerplant.h"
 
+PowerplantManager::PowerplantManager() {
 
-PowerplantManager::PowerplantManager()
-{
+
+
 	Powerplant* coal4 = new Powerplant(4, "coal", 2, 1);
 	Powerplant* coal8 = new Powerplant(8, "coal", 3, 2);
 	Powerplant* coal10 = new Powerplant(10, "coal", 2, 2);
@@ -52,11 +53,9 @@ PowerplantManager::PowerplantManager()
 	Powerplant* eco44 = new Powerplant(44, "eco", 0, 5);
 	Powerplant* eco50 = new Powerplant(50, "eco", 0, 6);
 
-	Powerplant* step3 = new Powerplant(-1, "Step 3", -1, -1);
+	//Powerplant* step3 = new Powerplant(-1, "Step 3", -1, -1);
 }
 
-
-PowerplantManager::~PowerplantManager()
-{
+PowerplantManager::~PowerplantManager() {
 
 }

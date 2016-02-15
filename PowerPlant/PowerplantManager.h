@@ -1,9 +1,16 @@
-#pragma once
+#ifndef POWERPLANTMANAGER_H
+#define POWERPLANTMANAGER_H
 
-class PowerplantManager
-{
+class PowerplantManager {
+
+
 public:
 	PowerplantManager();
 	~PowerplantManager();
+
 };
 
+
+
+
+#endif
