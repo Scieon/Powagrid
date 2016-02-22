@@ -1,8 +1,9 @@
 #ifndef COAL_H
 #define COAL_H
+#include "Resource.h"
 
 
-class Coal {
+class Coal : public Resource {
 
 public:
 	Coal();

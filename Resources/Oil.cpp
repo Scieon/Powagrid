@@ -1,6 +1,5 @@
 #include "Oil.h"
 
-
 Oil::Oil() {
 	cost = 50;
 }

@@ -6,8 +6,9 @@ class Resource {
 
 public:
 
-	virtual int getCost() const = 0;
-	virtual void setCost(int cost) = 0;
+	Resource();
+	virtual int getCost() const;
+	virtual void setCost(int cost);
 
 
 private:

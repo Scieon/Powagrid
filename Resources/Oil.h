@@ -5,9 +5,9 @@
 
 class Oil : public Resource {
 public:
-	 Oil::Oil();
+	Oil();
 	 int getCost() const;
-	 void setCost(int cost);
+	void setCost(int cost);
 
 private:
 	int cost;
