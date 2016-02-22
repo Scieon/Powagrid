@@ -2,6 +2,7 @@
 #include "Player.h";
 #include "Powerplant.h";
 #include "ResourceManager.h"
+#include "Resource.h";
 
 using namespace std;
 
@@ -20,7 +21,10 @@ int main() {
 	cout << "Cost is " << cost << endl;
 	cost = o1.getCost();
 	cout << "Cost is " << cost << endl;
-	
+
+	Resource *r1 = new Oil();
+	cout << endl << r1->getCost() << endl;
+
 
 	cin.get();
 	return 0;
