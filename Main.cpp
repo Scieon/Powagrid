@@ -8,12 +8,16 @@ using namespace std;
 
 int main() {
 
-	Player p1;
-	Powerplant* pp1 ;
-	Player p2("blue");
-	Player *p3 = new Player("red");
-	p2.showInfo();
+//	Player p1;
+	
+	//p2 must be dynamic type to hold pointers
+	//Player p2("blue"); //bad!
 
+	Player *p3 = new Player("red");
+	p3->showInfo();
+	p3->showColor();
+
+	cout << endl << "Testing Below" << endl;
 	Oil o1;
 
 	int cost = o1.getCost();
@@ -21,11 +25,22 @@ int main() {
 	cout << "Cost is " << cost << endl;
 	cost = o1.getCost();
 	cout << "Cost is " << cost << endl;
+	
+	/*
+	Resource *r1[3];
 
-	Resource *r1 = new Oil();
-	cout << endl << r1->getCost() << endl;
+
+
+	r1[0] = new Oil();
+	r1[1] = new Coal();
+	r1[2] = new Oil(); 
+	cout << endl << r1[0]->getCost() << endl << r1[1]->getCost() << endl;  */
+
 
 
 	cin.get();
+	//delete [] r1;
+	//delete r1[1];
+	
 	return 0;
 }
