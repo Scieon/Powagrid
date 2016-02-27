@@ -1,46 +1,56 @@
 #include <iostream>
 #include "Player.h";
 #include "Powerplant.h";
-#include "ResourceManager.h"
+#include "ResourceMarket.h"
 #include "Resource.h";
+#include "PowerplantManager.h"
 
 using namespace std;
 
 int main() {
-
-//	Player p1;
 	
-	//p2 must be dynamic type to hold pointers
-	//Player p2("blue"); //bad!
+	ResourceMarket r1;
+	r1.showInfo();
 
-	Player *p3 = new Player("red");
-	p3->showInfo();
-	p3->showColor();
-
-	cout << endl << "Testing Below" << endl;
-	Oil o1;
-
-	int cost = o1.getCost();
-	o1.setCost(200);
-	cout << "Cost is " << cost << endl;
-	cost = o1.getCost();
-	cout << "Cost is " << cost << endl;
+	Player *p1 = new Player("Green");
+	p1->showInfo();
 	
-	/*
-	Resource *r1[3];
+	Player *p2 = new Player("Red");
+	p2->showInfo();
 
 
+	cout << "Adding 20 elektros  and four units of oil to player 1." << endl << endl;
 
-	r1[0] = new Oil();
-	r1[1] = new Coal();
-	r1[2] = new Oil(); 
-	cout << endl << r1[0]->getCost() << endl << r1[1]->getCost() << endl;  */
+	system("pause");
+	p1->addElektros(20);
+	p1->addResource("Coal", 4);
+	p1->showInfo();
 
+	cout << "Adding 10 elektros  and two units of Uranium to player 2." << endl <<"Adding two powerplants to player 2"  << endl<< endl;
 
+	system("pause");
+
+	p2->addElektros(10);
+	p2->addResource("Uranium", 2);
+	Powerplant oil3(3, "Oil", 2, 1);
+	Powerplant coal20(20, "Coal", 3, 5);
+
+	p2->addPlant(oil3);
+	p2->addPlant(coal20);
+
+	p2->showInfo();
+
+	cout << "Diplaying players 2 powerplant characteristics." << endl << endl;
+	system("pause");
+
+	p2->showPlants();
+
+	
+	
 
 	cin.get();
-	//delete [] r1;
-	//delete r1[1];
-	
+
 	return 0;
-}
+}	
+	//p2 must be dynamic type to hold pointers
+	//Player p2("blue"); //bad!

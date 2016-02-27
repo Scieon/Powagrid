@@ -2,7 +2,14 @@
 #define PLAYER_H
 #include <string>
 #include "Resource.h"
-//include coal
+#include "House.h"
+#include "Coal.h"
+#include "Oil.h"
+#include "Garbage.h"
+#include "Uranium.h"
+
+#include "Powerplant.h"
+
 using std::string;
 
 
@@ -17,22 +24,23 @@ public:
 	void showInfo() const;;
 	int getElektros() const;
 	void setElektros(int elektros);
-	
-	//Test functions
-	void showColor();
+	void addElektros(int elektros);
 
-	//To be implemented
-	int getHouses() const;
-	void setHouses(int houses);
+	void showPlants();
+	void addResource(string type, int quantity);
+	void addPlant(Powerplant p1);
+
+	
+
 
 private:
 	static int number_of_players;
 	int elektros;
-	string color;
-	int number_of_houses;
-	Resource *resources[3];
-	//Coal coal;
-
+	Resource *resources[4];
+	House houses;
+	
+	Powerplant powerplants[3];
+	int numberOfPlants = 0;
 
 };
 
