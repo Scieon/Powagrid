@@ -68,5 +68,11 @@
     <ClInclude Include="ResourceMarket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AbstractObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

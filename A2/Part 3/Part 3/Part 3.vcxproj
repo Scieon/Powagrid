@@ -120,7 +120,9 @@
     <ClCompile Include="Uranium.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractObserver.h" />
     <ClInclude Include="Coal.h" />
+    <ClInclude Include="ConcreteObserver.h" />
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="Oil.h" />
     <ClInclude Include="Resource.h" />

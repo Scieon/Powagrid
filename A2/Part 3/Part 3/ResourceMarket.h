@@ -18,7 +18,6 @@ public:
 
 	void saveMarket(); // Saves ResourceMarket to resourcemarket.txt file 
 	void loadMarket(); // Loads ResourceMarket from resourcemarket.txt file
-	void removeOneUnit(string resource); //Removes one unit of any resource at any index
 	void updateMarket(string resource, int quantity); //Removes resources purchased by players during phase 3
 	void showInfo();
 	

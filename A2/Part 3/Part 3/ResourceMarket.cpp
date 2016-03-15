@@ -1,6 +1,5 @@
 #include "ResourceMarket.h"
 #include "ResourceManager.h"
-#include "IOFile.h"
 #include <iostream>
 #include <fstream>
 #include <istream>
@@ -155,10 +154,6 @@ void ResourceMarket::updateMarket(string resource, int quantity) {
 
 }
 
-//void removeOneUnit(string resource); //Removes one unit of any resource at any index
-void ResourceMarket::removeOneUnit(string resource) {
-
-}
 
 //Return total quantity of resource in market
 int ResourceMarket::getMarketQuantity(string resource) {
