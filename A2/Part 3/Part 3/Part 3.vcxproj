@@ -110,24 +110,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractSubject.cpp" />
     <ClCompile Include="Coal.cpp" />
     <ClCompile Include="Garbage.cpp" />
+    <ClCompile Include="ResourceMarketView.cpp" />
     <ClCompile Include="Oil.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ResourceMarket.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Subject.cpp" />
     <ClCompile Include="Uranium.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractObserver.h" />
+    <ClInclude Include="AbstractSubject.h" />
     <ClInclude Include="Coal.h" />
-    <ClInclude Include="ConcreteObserver.h" />
+    <ClInclude Include="ResourceMarketView.h" />
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="Oil.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ResourceMarket.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="Uranium.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

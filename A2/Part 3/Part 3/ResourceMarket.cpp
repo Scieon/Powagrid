@@ -1,17 +1,44 @@
 #include "ResourceMarket.h"
 #include "ResourceManager.h"
+#include "AbstractSubject.h"
 #include <iostream>
-#include <fstream>
-#include <istream>
 #include <string>
 
 
 using namespace std;
 
+//---------------------------------OBSERVERS-------------------------------------------------------//
+
+
+void ResourceMarket::attach(ResourceMarketView  * observer) {
+
+	observers->push_back(observer);
+
+}
+
+void ResourceMarket::detach(ResourceMarketView * observer) {
+
+	observers->remove(observer);
+}
+
+void ResourceMarket::notify() {
+
+	list<ResourceMarketView *>::iterator i = observers->begin();
+
+	for (; i != observers->end(); ++i) {
+		(*i)->update();
+	}
+}
+
+
+
+//---------------------------------OBSERVERS-------------------------------------------------------//
+
+
 
 
 //Resource Market intializes game resources according to rules
-ResourceMarket::ResourceMarket() {
+ResourceMarket::ResourceMarket(){
 	market[0] = new ResourceManager();
 	market[0]->edit("Coal", 3, 1); //edit(type,quantity,cost)
 	market[0]->edit("Oil", 0, 1);
@@ -165,104 +192,8 @@ int ResourceMarket::getMarketQuantity(string resource) {
 	}
 	return amount_in_market;
 }
-//Calls the replenish method accordingly
-//Replenish is helper method for this function
-void ResourceMarket::refill(int step, int players) {
 
 
-	switch (players) {
-
-	case 2:
-		if (step == 1) {
-
-			// Replenish("Coal",3);
-			// Replenish("Oil",2);
-			// Replenish("Garbage,1);
-			// Replenish("Uranium,1);
-
-		}
-
-		if (step == 2) {
-			//Do refill right to left
-		}
-
-		if (step == 3) {
-
-		}
-
-		else if (step != 1 && step != 2 && step != 3) {
-			cout << "Error not step 1,2,3" << endl;
-			system("pause");
-		}
-
-		break;
-
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
-	case 6:
-		break;
-
-	default:
-		cout << "Error number of players" << endl;
-		system("pause");
-
-	}
-
-
-}
-
-//Replenish resources at any quantity
-void ResourceMarket::replenish(string resource, int quantity) {
-
-	//Quantity could be 9 should loop until quantity = 0 storing resources accordingly
-	int emptyCoal = this->findEmpty("Coal");
-	int emptyOil = this->findEmpty("Oil");
-	int emptyGarbage = this->findEmpty("Garbage");
-	int emptyUranium = this->findEmpty("Uranium");
-
-	int partialCoal = this->findPartial("Coal");
-	int partialOil = this->findPartial("Oil");
-	int partialGarbage = this->findPartial("Garbage");
-
-	/*
-	if (emptyCoal != -1) {
-		market[emptyCoal]->edit("Coal", 3, emptyCoal + 1); //(Coal,qty,cost)
-	}
-
-	if (emptyOil != -1) {
-		market[emptyOil]->edit("Oil", 2, emptyOil + 1);
-	}
-
-	if (emptyGarbage != -1) {
-		market[emptyGarbage]->edit("Garbage", 1, emptyGarbage + 1);
-	}
-
-	if (partialCoal != -1) {
-
-		//Case 1 : Market index has 2 Coal
-		if (market[partialCoal]->getResourceQuantity("Coal") == 2) {
-			market[partialCoal]->edit("Coal", 3, partialCoal + 1); //Add one more
-			if (partialCoal != 0)
-				market[partialCoal - 1]->edit("Coal", 2, partialCoal); //Add remaining 2
-		}
-
-		//Case 2 : Market index has 1 Coal
-		if (market[partialCoal]->getResourceQuantity("Coal") == 1) {
-			market[partialCoal]->edit("Coal", 3, partialCoal + 1); //Add 2 more
-			if (partialCoal != 0)
-				market[partialCoal - 1]->edit("Coal", 1, partialCoal); //Add remaining 1
-		}
-
-	}
-
-	Do 2 cases for garbage and oil
-
-	*/
-}
 
 //Return -1 if no empty cells
 int ResourceMarket::findEmpty(string resource) {
@@ -300,73 +231,6 @@ int ResourceMarket::findPartial(string resource) {
 	return -1;
 }
 
-void ResourceMarket::saveMarket() {
-
-	ofstream output;
-
-	//  Open existing file resourcemarket.txt or create a new file
-	output.open("resourcemarket.txt");
-	cout << "Saving ResourceMarket" << endl;
-
-	// Loops through the ResourceMarket array and saves only the quantities to the .txt
-	for (int i = 0; i <= 11; i++) {
-		output << 
-			market[i]->getResourceQuantity("Coal") << "  " <<
-			market[i]->getResourceQuantity("Oil") << "  " <<
-			market[i]->getResourceQuantity("Garbage") << "  " <<
-			market[i]->getResourceQuantity("Uranium") << "  " << endl;
-	}
-
-	output.close();
-
-	cout << "\nResourceMarket Saved!" << endl << endl;
-
-}
-void ResourceMarket::loadMarket() {
-
-	int coal_amt,oil_amt,garbage_amt,uranium_amt,i=0,k = 10;
-	
-
-	// Opening "resourcemarket.txt"
-	ifstream input("resourcemarket.txt");
-
-	cout << "Loading ResourceMarket" << endl << "-------------------------" << endl;
-
-	// Reads each int one by one in line (left to right) coal->oil->garbage->uranium...nextline
-	while (input >> coal_amt >> oil_amt >> garbage_amt >> uranium_amt) {
-
-
-		if (i < 8) {
-
-			market[i]->edit("Coal", coal_amt, i + 1);
-			market[i]->edit("Oil", oil_amt, i + 1);
-			market[i]->edit("Garbage", garbage_amt, i + 1);
-			market[i]->edit("Uranium", uranium_amt, i + 1);
-		}
-			
-	
-		// Handles prices 10,12,14,16
-		if (i >= 8) {
-			
-			market[i]->edit("Coal", coal_amt, k);
-			market[i]->edit("Oil", oil_amt, k);
-			market[i]->edit("Garbage", garbage_amt, k);
-			market[i]->edit("Uranium", uranium_amt, k);
-			k = k + 2;
-		}
-			i++;
-
-		/*
-		// IGNORE:: checking if right amounts are implemented
-			cout << "Coal" << coal_amt << endl;
-			cout << "Oil" << oil_amt << endl;
-			cout << "Garbage" << garbage_amt << endl;
-			cout << "Uranium" << uranium_amt << endl;
-			cout << i << endl;
-			i++;
-		*/
-	}
-}
 
 
 void ResourceMarket::showInfo() {

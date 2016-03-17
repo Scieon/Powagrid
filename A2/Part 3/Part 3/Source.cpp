@@ -7,8 +7,10 @@ using namespace std;
 int main() {
 
 	ResourceMarket * market = new ResourceMarket();
+	//market->showInfo();
 
-	market->showInfo();
+
+
 	cin.get();
 	return 0;
 }

@@ -3,5 +3,5 @@
 class AbstractObserver {
 	
 public:
-	virtual void update(int val) = 0;
+	virtual void update() = 0;
 };

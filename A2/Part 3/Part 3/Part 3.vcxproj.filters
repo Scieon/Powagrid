@@ -19,6 +19,12 @@
     <Filter Include="Resource Files\Resources">
       <UniqueIdentifier>{6fe0b332-4a86-4129-ae82-f3d55f25fc06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Observer Pattern">
+      <UniqueIdentifier>{bb083e65-03c4-4f5e-8d99-3ab0da2ac621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ObserverPattern">
+      <UniqueIdentifier>{97da7cf8-e29e-4088-b736-b121103b5e51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -45,6 +51,15 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceMarketView.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractSubject.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coal.h">
@@ -68,11 +83,17 @@
     <ClInclude Include="ResourceMarket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractObserver.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AbstractSubject.h">
+      <Filter>Header Files\Observer Pattern</Filter>
     </ClInclude>
-    <ClInclude Include="ConcreteObserver.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AbstractObserver.h">
+      <Filter>Header Files\Observer Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files\Observer Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceMarketView.h">
+      <Filter>Header Files\Observer Pattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
