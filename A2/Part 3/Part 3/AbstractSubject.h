@@ -1,7 +1,8 @@
 #pragma once
-#include "ResourceMarketView.h"
+#include "AbstractObserver.h"
 #include <vector>
 #include <list>
+#include <string>
 
 using namespace std;
 
@@ -10,12 +11,12 @@ class AbstractSubject {
 public:
 	AbstractSubject();
 	~AbstractSubject();
-	virtual void attach(ResourceMarketView * observer) = 0;
-	virtual void detach(ResourceMarketView * observer) = 0;
-	virtual void notify() = 0;
+	virtual void attach(AbstractObserver * observer);
+	virtual void detach(AbstractObserver * observer);
+	virtual void notify(string resource, int quantity);
 
 protected:
 	//Keep track of all observers
-	list<ResourceMarketView *> * observers;
+	list<AbstractObserver *> * observers;
 
 };

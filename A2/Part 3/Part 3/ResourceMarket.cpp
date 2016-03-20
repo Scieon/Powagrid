@@ -10,25 +10,6 @@ using namespace std;
 //---------------------------------OBSERVERS-------------------------------------------------------//
 
 
-void ResourceMarket::attach(ResourceMarketView  * observer) {
-
-	observers->push_back(observer);
-
-}
-
-void ResourceMarket::detach(ResourceMarketView * observer) {
-
-	observers->remove(observer);
-}
-
-void ResourceMarket::notify() {
-
-	list<ResourceMarketView *>::iterator i = observers->begin();
-
-	for (; i != observers->end(); ++i) {
-		(*i)->update();
-	}
-}
 
 
 
@@ -38,7 +19,7 @@ void ResourceMarket::notify() {
 
 
 //Resource Market intializes game resources according to rules
-ResourceMarket::ResourceMarket(){
+ResourceMarket::ResourceMarket() {
 	market[0] = new ResourceManager();
 	market[0]->edit("Coal", 3, 1); //edit(type,quantity,cost)
 	market[0]->edit("Oil", 0, 1);
@@ -167,6 +148,8 @@ int ResourceMarket::getMarketCost(string resource, int quantity) {
 //Removes resources purchased by players during phase 3
 void ResourceMarket::updateMarket(string resource, int quantity) {
 
+	int initialAmount = quantity;
+
 	for (int i = 0; i <= 11; i++) {
 
 		while (market[i]->getResourceQuantity(resource) != 0) {
@@ -179,6 +162,7 @@ void ResourceMarket::updateMarket(string resource, int quantity) {
 			break;
 	}
 
+	notify(resource, initialAmount);
 }
 
 
@@ -231,7 +215,31 @@ int ResourceMarket::findPartial(string resource) {
 	return -1;
 }
 
+int ResourceMarket::getTotal(string resource) {
 
+	int quantity = 0;
+
+	if (resource == "Uranium") {
+		for (int i = 0; i <= 11; i++)
+			quantity += market[i]->getResourceQuantity(resource);
+		return quantity;
+	}
+
+	for (int i = 0; i <= 7; i++)
+		quantity += market[i]->getResourceQuantity(resource);
+
+	return quantity;
+}
+
+
+void ResourceMarket::showRemaining() {
+
+	cout << "Remaining Coal in Market: " << getTotal("Coal") << endl
+		<< "Remaining Oil in Market: " << getTotal("Oil") << endl
+		<< "Remaining Garbage in Market: " << getTotal("Garbage") << endl
+		<< "Remaining Uranium in Market: " << getTotal("Uranium") << endl;
+
+}
 
 void ResourceMarket::showInfo() {
 
