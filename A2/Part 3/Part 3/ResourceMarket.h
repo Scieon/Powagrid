@@ -15,9 +15,9 @@ public:
 	int getMarketCost(string resource, int quantity);
 	int getMarketQuantity(string resource);
 
-	void updateMarket(string resource, int quantity); //Removes resources purchased by players during phase 3
-	void showRemaining();
-	void showInfo();
+	void updateMarket(string resource, int quantity); //Removes resources purchased by players 
+	void showRemaining(); //Show remaining resources in the market
+	void showInfo(); //Show current market info
 	
 
 private:

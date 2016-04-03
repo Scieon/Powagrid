@@ -4,6 +4,7 @@
 
 using std::string;
 
+//Abstract class that the view will inherit from
 class AbstractObserver {
 	
 public:

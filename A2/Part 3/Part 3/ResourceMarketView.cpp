@@ -4,6 +4,7 @@ ResourceMarketView::ResourceMarketView(){
 	
 }
 
+//Constructor attaching itself onto a subject
 ResourceMarketView::ResourceMarketView(ResourceMarket * market) {
 	subject = market;
 	subject->attach(this);
@@ -14,6 +15,7 @@ ResourceMarketView::~ResourceMarketView() {
 
 }
 
+//Update will print out current resource market in addition to remaining quantities
 void ResourceMarketView::update(string resource, int quantity) {
 
 	subject->showInfo();

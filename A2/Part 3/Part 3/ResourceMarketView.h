@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+//ResourceMarketView is the observer class
 class ResourceMarketView : public AbstractObserver {
 
 public:

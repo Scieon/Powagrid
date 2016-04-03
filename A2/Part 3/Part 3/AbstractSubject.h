@@ -11,9 +11,9 @@ class AbstractSubject {
 public:
 	AbstractSubject();
 	~AbstractSubject();
-	virtual void attach(AbstractObserver * observer);
-	virtual void detach(AbstractObserver * observer);
-	virtual void notify(string resource, int quantity);
+	virtual void attach(AbstractObserver * observer); //Add observer to list
+	virtual void detach(AbstractObserver * observer); //Remove observer from list
+	virtual void notify(string resource, int quantity); //Notify observers
 
 protected:
 	//Keep track of all observers

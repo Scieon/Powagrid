@@ -7,15 +7,6 @@
 
 using namespace std;
 
-//---------------------------------OBSERVERS-------------------------------------------------------//
-
-
-
-
-
-//---------------------------------OBSERVERS-------------------------------------------------------//
-
-
 
 
 //Resource Market intializes game resources according to rules
@@ -162,6 +153,7 @@ void ResourceMarket::updateMarket(string resource, int quantity) {
 			break;
 	}
 
+	//Notify the observers that a purchase has been made
 	notify(resource, initialAmount);
 }
 
@@ -231,7 +223,7 @@ int ResourceMarket::getTotal(string resource) {
 	return quantity;
 }
 
-
+//Display remaining quantity of all resources in market
 void ResourceMarket::showRemaining() {
 
 	cout << "Remaining Coal in Market: " << getTotal("Coal") << endl
@@ -241,6 +233,7 @@ void ResourceMarket::showRemaining() {
 
 }
 
+//Display current Market info
 void ResourceMarket::showInfo() {
 
 	for (int i = 0; i <= 11; i++) {

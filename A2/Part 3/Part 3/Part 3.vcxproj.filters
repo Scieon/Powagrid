@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceMarket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,14 +48,14 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Subject.cpp">
-      <Filter>Source Files\ObserverPattern</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceMarketView.cpp">
       <Filter>Source Files\ObserverPattern</Filter>
     </ClCompile>
     <ClCompile Include="AbstractSubject.cpp">
       <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,9 +84,6 @@
       <Filter>Header Files\Observer Pattern</Filter>
     </ClInclude>
     <ClInclude Include="AbstractObserver.h">
-      <Filter>Header Files\Observer Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="Subject.h">
       <Filter>Header Files\Observer Pattern</Filter>
     </ClInclude>
     <ClInclude Include="ResourceMarketView.h">

@@ -33,7 +33,8 @@ void AbstractSubject::notify(string resource, int quantity) {
 
 	list<AbstractObserver *>::iterator i = observers->begin();
 
-	int j = 0;
+	//Loop through whole list of observers and update every single one
+	//This method is called when purchasing resources from the market using the updateMarket method in the ResourceMarket Class
 	for (; i != observers->end(); ++i) {
 		(*i)->update(resource, quantity);
 	}

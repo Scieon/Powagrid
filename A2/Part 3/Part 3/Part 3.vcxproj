@@ -118,8 +118,7 @@
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ResourceMarket.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Uranium.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +131,6 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ResourceMarket.h" />
-    <ClInclude Include="Subject.h" />
     <ClInclude Include="Uranium.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
