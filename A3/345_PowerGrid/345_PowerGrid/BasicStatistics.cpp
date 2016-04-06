@@ -4,18 +4,21 @@
 BasicStatistics::BasicStatistics() {}
 
 //Constructor attaching this observer onto subject
-BasicStatistics::BasicStatistics(Board * board) {
-	subject = board;
-	subject->attach(this);
+BasicStatistics::BasicStatistics(Board * board) : Statistics(board) {
+	//subject = board;
+	//subject->attach(this);
 }
 
 
 //Destructor freeing heap storage
 BasicStatistics::~BasicStatistics() {
-	delete subject;
+	//delete subject;
 }
 
 void BasicStatistics::update() {
+
+	cout << "------------------- Displaying Basic Statistics -------------------\n\n";
+	this->printStatistics();
 
 
 }
@@ -26,7 +29,7 @@ void BasicStatistics::printStatistics() {
 	PowerplantManager * powerplants = subject->powerplants_Vector;
 	ResourceMarket * market = subject->market;
 
-	cout << "\nDisplaying Statistics" << endl << endl;
+	
 	for (int i = 0; i < subject->getNumberOfPlayers(); i++) {
 
 		//subject->vector_player[i]->showInfo();   
@@ -35,9 +38,6 @@ void BasicStatistics::printStatistics() {
 		int total = players[i]->getResource("Coal") + players[i]->getResource("Garbage") + players[i]->getResource("Oil") + players[i]->getResource("Uranium");
 		cout << "Player " << players[i]->getColor() << " has a total of " << total << " resources." << endl << endl;
 	}
-
-	
-
 
 	for (int j = 0; j < 8; j++) {
 		if (j < 4) {
@@ -63,13 +63,3 @@ void BasicStatistics::printStatistics() {
 }
 
 
-
-/*
-for (Powerplant pp : *powerplants) {
-
-if (highest < pp.getBid()) {
-highest = pp.getBid();
-}
-}
-
-*/

@@ -13,6 +13,6 @@ public:
 	void printStatistics();
 
 private:
-	Board * subject;
+	//Board * subject;
 	
 };

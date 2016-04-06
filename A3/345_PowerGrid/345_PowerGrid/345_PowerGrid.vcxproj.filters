@@ -114,6 +114,18 @@
     <ClCompile Include="BasicStatistics.cpp">
       <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
+    <ClCompile Include="StatsDecorator.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="ElektrosStats.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Statistics.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceStats.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="House.h">
@@ -186,6 +198,15 @@
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="BasicStatistics.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsDecorator.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="ElektrosStats.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceStats.h">
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,6 +11,8 @@
 #include "IOFile.h"
 
 #include "BasicStatistics.h"
+#include "ElektrosStats.h"
+#include "ResourceStats.h"
 
 using namespace std;
 
@@ -71,26 +73,28 @@ int main() {
 	Map * gameMap = new Map(area_manager); //do not delete
 
 	Board * turn = new Board(vector_player, gameMap);
+	
 
+	//Observer
+	Statistics * b1 = new BasicStatistics(turn);
+	//b1 = new ElektrosStats(b1, turn);
 
-	BasicStatistics * b1 = new BasicStatistics(turn);
+	b1 = new ElektrosStats(b1);
+	b1 = new ResourceStats(b1);
+	
+
 	//turns
 	int y = 1;
 	while (y < CHANGETHISFORTURNS) {
 
 		//--------------------------------------------------------------------------------
-		b1->printStatistics();
-		system("pause");
+		//b1->update();
+		//system("pause");
 		//--------------------------------------------------------------------------------
 
 		turn->turnOrder();
 		turn->buyPowerPlant();
 		turn->buyRawMaterial();
-
-		//--------------------------------------------------------------------------------
-		b1->printStatistics();
-		system("pause");
-		//--------------------------------------------------------------------------------
 
 
 		turn->building();

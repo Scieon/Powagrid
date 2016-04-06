@@ -12,15 +12,18 @@
 #include "IOFile.h"
 
 
+
 using namespace std;
+
+
 
 //------------------------------------
 void Board::notify() {
 	list<Observer *>::iterator i = observers->begin();
 
-	int j = 0;
 	for (; i != observers->end(); ++i) {
 		(*i)->update(); //TODO
+		system("pause");
 	}
 }
 
@@ -55,6 +58,7 @@ Board::Board(std::vector<Player*> vector_player, Map *map) {
 	mapOfPlayersCity = new MapOfPlayersCity(map);
 	step2 = false;
 	step3 = false;
+
 }
 
 //Destructor
@@ -74,6 +78,9 @@ int Board::getTurnCounter() {
 /* Step1 - Determine turn order. The first time, it will be randomized. Then after the first time, it will always be comparing
 who has the most number of houses in the network. If two players are tied, then choose the player with the largest number of power plant. */
 void Board::turnOrder() {
+
+	notify();
+
 	//Enters this step in the first round because it will randomize who gets to play first.
 	cout << " ///////////////////////////////////////////////////////" << endl;
 	cout << " THIS IS FIRST STEP TO DETERMINE THE TURN ORDER" << endl;
@@ -111,11 +118,12 @@ void Board::turnOrder() {
 			}
 		}
 		else
-			cout << "We are keeping the order" << endl;
+		cout << "We are keeping the order" << endl;
 		cout << "The player with the most houses will start. If tied, biggest powerplant number will go. " << endl;
-
-
 	}
+
+	//system("pause");
+
 }
 
 /*Step2 - Print to the first player and ask him to buy a powerplant, then ask the other players. On the first round, everyone will have to buy

@@ -52,7 +52,7 @@ private:
 
 	bool step2;
 	bool step3;
-
+	
 
 	
 	//Gets the next player. Used for auction
